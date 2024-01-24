@@ -1,0 +1,27 @@
+version: "3.9"
+
+x-networks: &networks
+  networks:
+    - house_marketplace_network
+
+services:
+  db:
+    <<: *networks
+    image: postgres:16.1-alpine3.19
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=house
+      - POSTGRES_USER=house
+      - POSTGRES_DB=house_marketplace_development
+      - PG_DATA=/var/lib/postgresql/data
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db:
+
+networks:
+  house_marketplace_network:
+    external: true

@@ -1,0 +1,8 @@
+seed:
+  base_url: https://www.urhouse.com.tw/en/rentals/ajax
+  rent:
+    min: 30_000
+    max: 100_000
+  city: "Taipei City"
+  districts: []
+  beds: 5
